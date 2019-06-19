@@ -1,0 +1,26 @@
+{
+  "name": "knex-seeding",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm run setup-test && NODE_ENV=test knex seed:run && mocha spec",
+    "dev": "nodemon listen.js",
+    "setup-dev": "psql -f db/setup-dev.sql",
+    "setup-test": "psql -f db/setup-test.sql",
+    "seed-dev": "npm run setup-dev && knex seed:run",
+    "seed-test": "npm run setup-test && NODE_ENV=test knex seed:run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.17.6",
+    "pg": "^7.11.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "supertest": "^4.0.2"
+  }
+}

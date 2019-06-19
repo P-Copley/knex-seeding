@@ -1,0 +1,18 @@
+module.exports = [
+  { name: 'David Fincher' },
+  { name: 'Jonathan Demme' },
+  { name: 'George Lucas' },
+  { name: 'Carol Morley' },
+  { name: 'Frank Darabont' },
+  { name: 'Francis Ford Coppola' },
+  { name: 'Penny Marshall' },
+  { name: 'Lynne Ramsay' },
+  { name: 'Robert Zemeckis' },
+  { name: 'Nora Ephron' },
+  { name: 'Greta Gerwig' },
+  { name: 'Michel Gondry' },
+  { name: 'Quentin Tarantino' },
+  { name: 'Chris Nolan' },
+  { name: 'Steven Spielberg' },
+  { name: 'Martin Scorsese' },
+];
