@@ -4,8 +4,7 @@ const { createRef, formatFilmData } = require('../../utils');
 exports.seed = function(knex, Promise) {
   console.log('seed gonna insert some data...');
   return knex('directors')
-    .insert(directorData)
-    .returning('*')
+    .insert(directorData, '*')
     .then(directorRows => {
       console.log(`inserted ${directorRows.length} directors...`);
       const directorRef = createRef(directorRows, 'name', 'director_id');

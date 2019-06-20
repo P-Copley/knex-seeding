@@ -11,7 +11,7 @@ CREATE TABLE directors
 CREATE TABLE films
 (
   film_id SERIAL PRIMARY KEY,
-  title VARCHAR,
+  title VARCHAR NOT NULL,
   year_of_release INT,
   rating FLOAT NOT NULL DEFAULT 0,
   box_office BIGINT,

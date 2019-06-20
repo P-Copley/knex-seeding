@@ -1,9 +1,5 @@
 exports.createRef = (arr, key, value) => {
-  return arr.reduce((acc, ele) => {
-    acc[ele[key]] = ele[value];
-    return acc;
-    // return { ...acc, [ele[key]] : ele[value] }
-  }, {});
+  return arr.reduce((acc, ele) => ({ ...acc, [ele[key]]: ele[value] }), {});
 };
 
 exports.formatFilmData = (films, directorRef) => {

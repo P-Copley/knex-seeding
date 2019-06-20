@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "npm run setup-test && NODE_ENV=test knex seed:run && mocha spec",
+    "test": "npm run seed-test && mocha spec",
     "dev": "nodemon listen.js",
     "setup-dev": "psql -f db/setup-dev.sql",
     "setup-test": "psql -f db/setup-test.sql",
@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai-sorted": "^0.2.0",
     "express": "^4.17.1",
     "knex": "^0.17.6",
     "pg": "^7.11.0"

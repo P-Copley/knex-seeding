@@ -1,11 +1,12 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
 const apiRouter = require('./routes/api.js');
+const { handlePsqlErrors, handle500Errors } = require('./errors');
 
+app.use(express.json());
 app.use('/api', apiRouter);
 
-app.use((err, req, res, next) => {
-  console.log(err);
-  res.status(500).send({ msg: 'Internal Server Error' });
-});
+app.use(handlePsqlErrors);
+app.use(handle500Errors);
 
 module.exports = app;
