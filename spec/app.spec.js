@@ -106,6 +106,23 @@ describe('/api', () => {
             expect(msg).to.equal('bad request');
           });
       });
+      it('status:422 when posting correctly formatted id that does not exist', () => {
+        return request
+          .post('/api/films')
+          .send({
+            title: 'test film 1',
+            year_of_release: 2000,
+            duration: 100,
+            plot: 'stuff happens',
+            rating: 9,
+            box_office: 123456789,
+            director_id: 10
+          })
+          .expect(422)
+          .then(({ body: { msg } }) => {
+            expect(msg).to.equal('unprocessable request');
+          });
+      });
     });
     describe('INVALID METHODS', () => {
       it('status:405', () => {
@@ -119,6 +136,16 @@ describe('/api', () => {
         });
         return Promise.all(methodPromises);
       });
+    });
+  });
+  describe('invalid routes', () => {
+    it('status:404 responds with route not found', () => {
+      return request
+        .get('/api/missing')
+        .expect(404)
+        .then(({ body: { msg } }) => {
+          expect(msg).to.equal('route not found');
+        });
     });
   });
 });
